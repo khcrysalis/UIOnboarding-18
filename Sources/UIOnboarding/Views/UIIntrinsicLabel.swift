@@ -1,6 +1,6 @@
 //
 //  UIIntrinsicLabel.swift
-//  UIOnboarding
+//  UIOnboarding Demo
 //
 //  Created by Lukman Aščić on 07.08.23.
 //

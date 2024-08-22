@@ -1,6 +1,6 @@
 //
 //  UIDevice+Ext.swift
-//  UIOnboarding
+//  UIOnboarding Demo
 //
 //  Created by Lukman Aščić on 17.02.22.
 //

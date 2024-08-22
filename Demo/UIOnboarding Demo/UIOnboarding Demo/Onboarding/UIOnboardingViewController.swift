@@ -211,7 +211,7 @@ private extension UIOnboardingViewController {
         
         continueButton.centerXAnchor.constraint(equalTo: onboardingStackView.centerXAnchor).isActive = true
         
-        continueButtonHeight = continueButton.heightAnchor.constraint(equalToConstant: UIFontMetrics.default.scaledValue(for: traitCollection.horizontalSizeClass == .regular ? 50 : UIScreenType.isiPhoneSE ? 48 : 52))
+        continueButtonHeight = continueButton.heightAnchor.constraint(equalToConstant: UIFontMetrics.default.scaledValue(for: traitCollection.horizontalSizeClass == .regular ? 54 : UIScreenType.isiPhoneSE ? 48 : 54))
         continueButtonHeight.isActive = true
     }
     
@@ -274,9 +274,9 @@ private extension UIOnboardingViewController {
                     
         onboardingStackViewWidth.constant = traitCollection.horizontalSizeClass == .regular ? 480 : (traitCollection.horizontalSizeClass == .compact && view.frame.width == 320 ? view.frame.width - 60 : (isiPadPro && traitCollection.horizontalSizeClass == .compact && view.frame.width == 639 ? 340 : view.frame.width - (UIScreenType.setUpPadding() * 2)))
         
-        continueButtonBottom.constant = traitCollection.horizontalSizeClass == .regular || (isiPadPro && traitCollection.horizontalSizeClass == .compact && view.frame.width == 639) ? -60 : -40
+        continueButtonBottom.constant = traitCollection.horizontalSizeClass == .regular || (isiPadPro && traitCollection.horizontalSizeClass == .compact && view.frame.width == 639) ? -60 : -25
         
-        continueButtonWidth.constant = traitCollection.horizontalSizeClass == .regular ? 340 : (traitCollection.horizontalSizeClass == .compact && view.frame.width == 320 ? view.frame.width - 60 : (isiPadPro && traitCollection.horizontalSizeClass == .compact && view.frame.width == 639 ? 300 : view.frame.width - (UIScreenType.setUpPadding() * 2)))
+        continueButtonWidth.constant = traitCollection.horizontalSizeClass == .regular ? 340 : (traitCollection.horizontalSizeClass == .compact && view.frame.width == 320 ? view.frame.width - 60 : (isiPadPro && traitCollection.horizontalSizeClass == .compact && view.frame.width == 639 ? 300 : view.frame.width - (UIScreenType.setUpButtonPadding() * 2)))
                 
         view.layoutIfNeeded()
         bottomOverlayView.subviews.first?.alpha = enoughSpaceToShowFullList ? 1 : 0

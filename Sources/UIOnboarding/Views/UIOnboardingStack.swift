@@ -1,6 +1,6 @@
 //
 //  UIOnboardingStack.swift
-//  UIOnboarding
+//  UIOnboarding Demo
 //
 //  Created by Lukman Aščić on 14.02.22.
 //
@@ -54,7 +54,7 @@ final class UIOnboardingStack: UIStackView {
     private func configure() {
         axis = .vertical
         distribution = .fill
-        alignment = .leading
+		alignment = .center
         
         alpha = 0
         transform = UIAccessibility.isReduceMotionEnabled ? .identity : .init(scaleX: 0.75, y: 0.75)
@@ -78,27 +78,30 @@ final class UIOnboardingStack: UIStackView {
         featuresList.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
-    func animate(completion: (() -> Void)?) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.834) {
-            UIView.animate(withDuration: 0.666, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.onboardingIcon.isHidden = true
-                self.onboardingIcon.alpha = 0
-                self.spacerView.isHidden = true
-                self.spacerView.alpha = 0
-                self.layoutIfNeeded()
-            }, completion: { (_) in
-                self.onboardingIcon.isHidden = true
-                self.spacerView.isHidden = true
-                self.featuresList.alpha = 1
-                self.featuresList.reloadData()
-                UIView.animate(withDuration: 0.666) {
-                    if let completion = completion {
-                        completion()
-                    }
-                }
-            })
-        }
-    }
+	func animate(completion: (() -> Void)?) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.834) {
+			UIView.animate(withDuration: 0.566, delay: 0.0, options: [.curveEaseInOut], animations: {
+				self.onboardingIcon.isHidden = true
+				self.onboardingIcon.alpha = 0
+				self.spacerView.isHidden = true
+				self.spacerView.alpha = 0
+				
+				self.onboardingIcon.isHidden = true
+				self.spacerView.isHidden = true
+				self.featuresList.alpha = 1
+				self.featuresList.reloadData()
+				
+				self.layoutIfNeeded()
+			}, completion: { _ in
+				
+				UIView.animate(withDuration: 0.566) {
+					completion?()
+				}
+			})
+		}
+	}
+
+
 }
 
 extension UIOnboardingStack: UITableViewDataSource {

@@ -1,6 +1,6 @@
 //
 //  Bundle+Ext.swift
-//  UIOnboarding
+//  UIOnboarding Demo
 //
 //  Created by Lukman Aščić on 14.02.22.
 //
@@ -8,7 +8,7 @@
 import UIKit
 
 extension Bundle {
-    public var appIcon: UIImage? {
+    var appIcon: UIImage? {
         if let icons = infoDictionary?["CFBundleIcons"] as? Dictionary<String, Any>,
            let primary = icons["CFBundlePrimaryIcon"] as? Dictionary<String, Any>,
            let files = primary["CFBundleIconFiles"] as? Array<String>,
@@ -19,7 +19,7 @@ extension Bundle {
         }
     }
     
-    public var displayName: String? {
+    var displayName: String? {
         return infoDictionary?["CFBundleDisplayName"] as? String
     }
 }

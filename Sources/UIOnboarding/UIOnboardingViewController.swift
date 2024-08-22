@@ -1,13 +1,13 @@
 //
 //  UIOnboardingViewController.swift
-//  UIOnboarding
+//  UIOnboarding Demo
 //
 //  Created by Lukman Aščić on 14.02.22.
 //
 
 import UIKit
 
-public final class UIOnboardingViewController: UIViewController {
+final class UIOnboardingViewController: UIViewController {
     private var onboardingScrollView: UIScrollView!
     private var onboardingStackView: UIOnboardingStack!
     private var onboardingStackViewWidth: NSLayoutConstraint!
@@ -38,15 +38,15 @@ public final class UIOnboardingViewController: UIViewController {
     private var hasScrolledToBottom: Bool = false
     private var needsUIRefresh: Bool = true
     
-    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return device.userInterfaceIdiom == .pad ? .all : .portrait
     }
     private let configuration: UIOnboardingViewConfiguration
     private let device: UIDevice
     private let screen: UIScreen
-    public weak var delegate: UIOnboardingViewControllerDelegate?
+    weak var delegate: UIOnboardingViewControllerDelegate?
     
-    public init(withConfiguration configuration: UIOnboardingViewConfiguration, device: UIDevice = .current, screen: UIScreen = .main) {
+    init(withConfiguration configuration: UIOnboardingViewConfiguration, device: UIDevice = .current, screen: UIScreen = .main) {
         self.configuration = configuration
         self.device = device
         self.screen = screen
@@ -66,39 +66,39 @@ public final class UIOnboardingViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
         
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         view.isUserInteractionEnabled = false
     }
         
-    public override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureScrollView()
         setUpTopOverlay()
     }
         
-    public override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         startOnboardingAnimation(completion: {
             self.needsUIRefresh = true
         })
     }
     
-    public override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
         if needsUIRefresh {
             updateUI()
             needsUIRefresh = false
         }
     }
-
-    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         needsUIRefresh = true
     }
     
-    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if #unavailable(iOS 17.0), traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass {
             // iOS 17+ uses the trait registration API instead. (`registerForTraitChanges(_:handler:)`)
             handleHorizontalSizeClassChange()
@@ -122,7 +122,7 @@ public final class UIOnboardingViewController: UIViewController {
 }
 
 extension UIOnboardingViewController: UIScrollViewDelegate {
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollViewHeight = scrollView.frame.size.height
         let scrollContentSizeHeight = scrollView.contentSize.height
         let scrollOffset = scrollView.contentOffset.y
@@ -211,7 +211,7 @@ private extension UIOnboardingViewController {
         
         continueButton.centerXAnchor.constraint(equalTo: onboardingStackView.centerXAnchor).isActive = true
         
-        continueButtonHeight = continueButton.heightAnchor.constraint(equalToConstant: UIFontMetrics.default.scaledValue(for: traitCollection.horizontalSizeClass == .regular ? 50 : UIScreenType.isiPhoneSE ? 48 : 52))
+        continueButtonHeight = continueButton.heightAnchor.constraint(equalToConstant: UIFontMetrics.default.scaledValue(for: traitCollection.horizontalSizeClass == .regular ? 54 : UIScreenType.isiPhoneSE ? 48 : 54))
         continueButtonHeight.isActive = true
     }
     
@@ -274,9 +274,9 @@ private extension UIOnboardingViewController {
                     
         onboardingStackViewWidth.constant = traitCollection.horizontalSizeClass == .regular ? 480 : (traitCollection.horizontalSizeClass == .compact && view.frame.width == 320 ? view.frame.width - 60 : (isiPadPro && traitCollection.horizontalSizeClass == .compact && view.frame.width == 639 ? 340 : view.frame.width - (UIScreenType.setUpPadding() * 2)))
         
-        continueButtonBottom.constant = traitCollection.horizontalSizeClass == .regular || (isiPadPro && traitCollection.horizontalSizeClass == .compact && view.frame.width == 639) ? -60 : -40
+        continueButtonBottom.constant = traitCollection.horizontalSizeClass == .regular || (isiPadPro && traitCollection.horizontalSizeClass == .compact && view.frame.width == 639) ? -60 : -25
         
-        continueButtonWidth.constant = traitCollection.horizontalSizeClass == .regular ? 340 : (traitCollection.horizontalSizeClass == .compact && view.frame.width == 320 ? view.frame.width - 60 : (isiPadPro && traitCollection.horizontalSizeClass == .compact && view.frame.width == 639 ? 300 : view.frame.width - (UIScreenType.setUpPadding() * 2)))
+        continueButtonWidth.constant = traitCollection.horizontalSizeClass == .regular ? 340 : (traitCollection.horizontalSizeClass == .compact && view.frame.width == 320 ? view.frame.width - 60 : (isiPadPro && traitCollection.horizontalSizeClass == .compact && view.frame.width == 639 ? 300 : view.frame.width - (UIScreenType.setUpButtonPadding() * 2)))
                 
         view.layoutIfNeeded()
         bottomOverlayView.subviews.first?.alpha = enoughSpaceToShowFullList ? 1 : 0

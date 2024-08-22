@@ -1,28 +1,28 @@
 //
 //  UIOnboardingViewConfiguration.swift
-//  UIOnboarding
+//  UIOnboarding Demo
 //
 //  Created by Lukman Aščić on 14.02.22.
 //
 
 import UIKit
 
-public struct UIOnboardingViewConfiguration {
-    public var appIcon: UIImage
-    public var firstTitleLine: NSMutableAttributedString
-    public var secondTitleLine: NSMutableAttributedString
-    public var features: Array<UIOnboardingFeature>
-    public let featureStyle: UIOnboardingFeatureStyle
-    public var textViewConfiguration: UIOnboardingTextViewConfiguration? = nil
-    public var buttonConfiguration: UIOnboardingButtonConfiguration
+struct UIOnboardingViewConfiguration {
+    var appIcon: UIImage
+    var firstTitleLine: NSMutableAttributedString
+    var secondTitleLine: NSMutableAttributedString
+    var features: Array<UIOnboardingFeature>
+    let featureStyle: UIOnboardingFeatureStyle
+    var textViewConfiguration: UIOnboardingTextViewConfiguration? = nil
+    var buttonConfiguration: UIOnboardingButtonConfiguration
     
-    public init(appIcon: UIImage,
-                firstTitleLine: NSMutableAttributedString,
-                secondTitleLine: NSMutableAttributedString,
-                features: Array<UIOnboardingFeature>,
-                featureStyle: UIOnboardingFeatureStyle = .init(),
-                textViewConfiguration: UIOnboardingTextViewConfiguration? = nil,
-                buttonConfiguration: UIOnboardingButtonConfiguration) {
+    init(appIcon: UIImage,
+         firstTitleLine: NSMutableAttributedString,
+         secondTitleLine: NSMutableAttributedString,
+         features: Array<UIOnboardingFeature>,
+         featureStyle: UIOnboardingFeatureStyle = .init(),
+         textViewConfiguration: UIOnboardingTextViewConfiguration? = nil,
+         buttonConfiguration: UIOnboardingButtonConfiguration) {
         self.appIcon = appIcon
         self.firstTitleLine = firstTitleLine
         self.secondTitleLine = secondTitleLine

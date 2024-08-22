@@ -151,7 +151,7 @@ private extension UIOnboardingCell {
         if let customDescriptionFont = UIFont(name: configuration.descriptionFontName, size: traitCollection.horizontalSizeClass == .regular ? configuration.descriptionFontSize * 1.176 : configuration.descriptionFontSize) {
             descriptionLabel.font = UIFontMetrics.default.scaledFont(for: customDescriptionFont)
         } else {
-            descriptionLabel.font = UIFontMetrics.default.scaledFont(for: .systemFont(ofSize: traitCollection.horizontalSizeClass == .regular ? configuration.descriptionFontSize * 1.176 : configuration.descriptionFontSize, weight: .light))
+			descriptionLabel.font = UIFontMetrics.default.scaledFont(for: .systemFont(ofSize: traitCollection.horizontalSizeClass == .regular ? configuration.descriptionFontSize * 1.176 : configuration.descriptionFontSize, weight: .regular))
         }
     }
 }

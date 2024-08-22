@@ -1,6 +1,6 @@
 //
 //  UIOnboardingTextView.swift
-//  UIOnboarding
+//  UIOnboarding Demo
 //
 //  Created by Lukman Aščić on 14.02.22.
 //
@@ -25,7 +25,7 @@ final class UIOnboardingTextView: UITextView {
     private func configure() {
         textAlignment = .center
         backgroundColor = .clear
-        textContainerInset = .init(top: 0, left: 0, bottom: 30, right: 0)
+        textContainerInset = .init(top: 0, left: 0, bottom: 25, right: 0)
         textColor = .secondaryLabel
         if let tintColor = configuration.tint {
             self.tintColor = tintColor

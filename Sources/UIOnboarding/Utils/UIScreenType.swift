@@ -1,6 +1,6 @@
 //
 //  UIScreenType.swift
-//  UIOnboarding
+//  UIOnboarding Demo
 //
 //  Created by Lukman Aščić on 14.02.22.
 //
@@ -31,7 +31,7 @@ struct UIScreenType {
         if UIScreenType.isiPhoneSE || UIScreenType.isiPhone6s || UIScreenType.isiPhone6sPlus {
             return 70
         } else {
-            return 120
+            return 90
         }
     }
     
@@ -39,7 +39,7 @@ struct UIScreenType {
         if UIScreenType.isiPhoneSE || UIScreenType.isiPhone6s || UIScreenType.isiPhone12Mini {
             return 20
         } else {
-            return 40
+            return 30
         }
     }
         
@@ -59,7 +59,7 @@ struct UIScreenType {
         } else if UIScreenType.isiPhone6s || UIScreenType.isiPhone12Mini {
             return 40
         } else {
-            return 60
+            return 50
         }
     }
 }

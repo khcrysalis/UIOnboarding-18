@@ -28,7 +28,7 @@ struct UIOnboardingFeatureStyle {
     var descriptionFontSize: CGFloat
     var spacing: CGFloat
     
-    init(titleFontName: String = "", titleFontSize: CGFloat = 17, descriptionFontName: String = "", descriptionFontSize: CGFloat = 17, spacing: CGFloat = 0.8) {
+	init(titleFontName: String = "", titleFontSize: CGFloat = 18, descriptionFontName: String = "", descriptionFontSize: CGFloat = 16, spacing: CGFloat = 2.6) {
         self.titleFontName = titleFontName
         self.titleFontSize = titleFontSize
         self.descriptionFontName = descriptionFontName

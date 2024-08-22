@@ -1,6 +1,6 @@
 //
 //  UIOnboardingTitleLabelStack.swift
-//  UIOnboarding
+//  UIOnboarding Demo
 //
 //  Created by Felix Lisczyk on 10.06.22.
 //

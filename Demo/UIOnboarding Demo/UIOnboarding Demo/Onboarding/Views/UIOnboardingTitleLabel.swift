@@ -42,7 +42,7 @@ extension UIOnboardingTitleLabel {
         let paragraphStyle: NSMutableParagraphStyle = .init()
         paragraphStyle.lineSpacing = 1.0
         paragraphStyle.lineHeightMultiple = lineHeight
-        paragraphStyle.alignment = textAlignment
+		paragraphStyle.alignment = .center
 
         let attrString: NSMutableAttributedString = .init()
         if (attributedText != nil) {

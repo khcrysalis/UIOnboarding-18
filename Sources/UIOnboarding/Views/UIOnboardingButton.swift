@@ -1,6 +1,6 @@
 //
 //  UIOnboardingButton.swift
-//  UIOnboarding
+//  UIOnboarding Demo
 //
 //  Created by Lukman Aščić on 14.02.22.
 //
@@ -34,7 +34,7 @@ final class UIOnboardingButton: UIButton {
     }
 
     private func configure() {
-        layer.cornerRadius = UIScreenType.isiPhoneSE ? 13 : 15
+        layer.cornerRadius = 13
         layer.cornerCurve = .continuous
         titleLabel?.numberOfLines = 0
         
