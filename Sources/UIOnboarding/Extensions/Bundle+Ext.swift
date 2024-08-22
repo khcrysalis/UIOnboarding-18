@@ -8,7 +8,7 @@
 import UIKit
 
 extension Bundle {
-    var appIcon: UIImage? {
+    public var appIcon: UIImage? {
         if let icons = infoDictionary?["CFBundleIcons"] as? Dictionary<String, Any>,
            let primary = icons["CFBundlePrimaryIcon"] as? Dictionary<String, Any>,
            let files = primary["CFBundleIconFiles"] as? Array<String>,
@@ -19,7 +19,7 @@ extension Bundle {
         }
     }
     
-    var displayName: String? {
+    public var displayName: String? {
         return infoDictionary?["CFBundleDisplayName"] as? String
     }
 }

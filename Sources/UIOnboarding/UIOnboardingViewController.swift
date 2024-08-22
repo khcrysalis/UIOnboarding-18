@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class UIOnboardingViewController: UIViewController {
+public final class UIOnboardingViewController: UIViewController {
     private var onboardingScrollView: UIScrollView!
     private var onboardingStackView: UIOnboardingStack!
     private var onboardingStackViewWidth: NSLayoutConstraint!
@@ -38,15 +38,15 @@ final class UIOnboardingViewController: UIViewController {
     private var hasScrolledToBottom: Bool = false
     private var needsUIRefresh: Bool = true
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return device.userInterfaceIdiom == .pad ? .all : .portrait
     }
     private let configuration: UIOnboardingViewConfiguration
     private let device: UIDevice
     private let screen: UIScreen
-    weak var delegate: UIOnboardingViewControllerDelegate?
+    public weak var delegate: UIOnboardingViewControllerDelegate?
     
-    init(withConfiguration configuration: UIOnboardingViewConfiguration, device: UIDevice = .current, screen: UIScreen = .main) {
+    public init(withConfiguration configuration: UIOnboardingViewConfiguration, device: UIDevice = .current, screen: UIScreen = .main) {
         self.configuration = configuration
         self.device = device
         self.screen = screen
@@ -66,25 +66,25 @@ final class UIOnboardingViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
         
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         view.isUserInteractionEnabled = false
     }
         
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureScrollView()
         setUpTopOverlay()
     }
         
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         startOnboardingAnimation(completion: {
             self.needsUIRefresh = true
         })
     }
     
-    override func viewDidLayoutSubviews() {
+    public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         if needsUIRefresh {
@@ -93,12 +93,12 @@ final class UIOnboardingViewController: UIViewController {
         }
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         needsUIRefresh = true
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if #unavailable(iOS 17.0), traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass {
             // iOS 17+ uses the trait registration API instead. (`registerForTraitChanges(_:handler:)`)
             handleHorizontalSizeClassChange()

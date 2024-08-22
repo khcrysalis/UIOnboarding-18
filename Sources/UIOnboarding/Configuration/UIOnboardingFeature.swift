@@ -7,13 +7,13 @@
 
 import UIKit
 
-struct UIOnboardingFeature {
-    var icon: UIImage!
-    var iconTint: UIColor
-    var title: String
-    var description: String
+public struct UIOnboardingFeature {
+    public var icon: UIImage
+    public var iconTint: UIColor
+    public var title: String
+    public var description: String
     
-    init(icon: UIImage!, iconTint: UIColor = .label, title: String, description: String) {
+    public init(icon: UIImage!, iconTint: UIColor = .label, title: String, description: String) {
         self.icon = icon
         self.iconTint = iconTint
         self.title = title
@@ -21,14 +21,14 @@ struct UIOnboardingFeature {
     }
 }
 
-struct UIOnboardingFeatureStyle {
-    var titleFontName: String
-    var titleFontSize: CGFloat
-    var descriptionFontName: String
-    var descriptionFontSize: CGFloat
-    var spacing: CGFloat
+public struct UIOnboardingFeatureStyle {
+    public var titleFontName: String
+    public var titleFontSize: CGFloat
+    public var descriptionFontName: String
+    public var descriptionFontSize: CGFloat
+    public var spacing: CGFloat
     
-	init(titleFontName: String = "", titleFontSize: CGFloat = 18, descriptionFontName: String = "", descriptionFontSize: CGFloat = 16, spacing: CGFloat = 2.6) {
+	public init(titleFontName: String = "", titleFontSize: CGFloat = 18, descriptionFontName: String = "", descriptionFontSize: CGFloat = 16, spacing: CGFloat = 2.6) {
         self.titleFontName = titleFontName
         self.titleFontSize = titleFontSize
         self.descriptionFontName = descriptionFontName

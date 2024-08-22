@@ -7,16 +7,16 @@
 
 import UIKit
 
-struct UIOnboardingViewConfiguration {
-    var appIcon: UIImage
-    var firstTitleLine: NSMutableAttributedString
-    var secondTitleLine: NSMutableAttributedString
-    var features: Array<UIOnboardingFeature>
-    let featureStyle: UIOnboardingFeatureStyle
-    var textViewConfiguration: UIOnboardingTextViewConfiguration? = nil
-    var buttonConfiguration: UIOnboardingButtonConfiguration
+public struct UIOnboardingViewConfiguration {
+    public var appIcon: UIImage
+    public var firstTitleLine: NSMutableAttributedString
+    public var secondTitleLine: NSMutableAttributedString
+    public var features: Array<UIOnboardingFeature>
+    public let featureStyle: UIOnboardingFeatureStyle
+    public var textViewConfiguration: UIOnboardingTextViewConfiguration? = nil
+    public var buttonConfiguration: UIOnboardingButtonConfiguration
     
-    init(appIcon: UIImage,
+    public init(appIcon: UIImage,
          firstTitleLine: NSMutableAttributedString,
          secondTitleLine: NSMutableAttributedString,
          features: Array<UIOnboardingFeature>,

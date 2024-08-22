@@ -7,13 +7,13 @@
 
 import UIKit
 
-struct UIOnboardingButtonConfiguration {
-    var title: String
-    var fontName: String
-    var titleColor: UIColor
-    var backgroundColor: UIColor
+public struct UIOnboardingButtonConfiguration {
+    public var title: String
+    public var fontName: String
+    public var titleColor: UIColor
+    public var backgroundColor: UIColor
 
-    init(title: String,
+    public init(title: String,
          fontName: String = "",
          titleColor: UIColor = .white,
          backgroundColor: UIColor) {
