@@ -31,7 +31,7 @@ struct UIScreenType {
         if UIScreenType.isiPhoneSE || UIScreenType.isiPhone6s || UIScreenType.isiPhone6sPlus {
             return 70
         } else {
-            return 90
+            return 110
         }
     }
     
@@ -59,7 +59,7 @@ struct UIScreenType {
         } else if UIScreenType.isiPhone6s || UIScreenType.isiPhone12Mini {
             return 40
         } else {
-            return 50
+            return 54
         }
     }
 }
